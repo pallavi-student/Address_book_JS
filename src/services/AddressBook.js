@@ -1,3 +1,4 @@
+
 const Contact = require('../models/Contacts');
 
 class AddressBook {
@@ -15,6 +16,15 @@ class AddressBook {
 
     getAllContacts() {
         return this.contacts;
+    }
+
+    editContact(firstName, updatedDetails) {
+        const contact = this.contacts.find(c => c.firstName === firstName);
+        if (!contact) {
+            throw new Error("Contact not found.");
+        }
+        Object.assign(contact, updatedDetails);
+        return "Contact updated successfully!";
     }
 }
 
