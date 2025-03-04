@@ -17,7 +17,8 @@ try {
 
     console.log(addressBook.editContact("Sujal", { address: "Rewa", city: "London", phone: "7024764565" }));
     console.log("All Contacts After editing", addressBook.getAllContacts());
-
+    console.log(addressBook.deleteContact("Sujal"));
+console.log("All Contacts After Deleting:", addressBook.getAllContacts());
 } 
 catch (error) {
     console.error("Error:", error.message);
