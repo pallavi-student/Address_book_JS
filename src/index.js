@@ -18,8 +18,10 @@ try {
     console.log(addressBook.editContact("Sujal", { address: "Rewa", city: "London", phone: "7024764565" }));
     console.log("All Contacts After editing", addressBook.getAllContacts());
     console.log(addressBook.deleteContact("Sujal"));
-console.log("All Contacts After Deleting:", addressBook.getAllContacts());
-console.log("Total Contacts:", addressBook.countContacts());
+    console.log("All Contacts After Deleting:", addressBook.getAllContacts());
+    console.log("Total Contacts:", addressBook.countContacts());
+    const duplicateContact=new Contact("Pallavi", "Singh", "Bhopal", "India", "Madhya Pradesh", "100001", "6457865490", "pallavigaharwar15@gmail.com");
+    console.log(addressBook.addContact(duplicateContact));
 } 
 catch (error) {
     console.error("Error:", error.message);
