@@ -8,7 +8,7 @@ class AddressBook {
 
     addContact(contact) {
         if (this.contacts.some(c => c.phone === contact.phone || c.email === contact.email)) {
-            throw new Error("Duplicate Contact! Phone number or Email exists already.");
+            throw new Error("Duplicate Contact! Phone number or Email already exists.");
         }
         this.contacts.push(contact);
         return "Contact added successfully!";
@@ -16,16 +16,26 @@ class AddressBook {
 
     getAllContacts() {
         return this.contacts;
+    } 
+
+    findContactByName(name) {
+        return this.contacts.find(c => c.firstName.toLowerCase() === name.toLowerCase());
     }
 
-    editContact(firstName, updatedDetails) {
-        const contact = this.contacts.find(c => c.firstName === firstName);
+    editContact(name, updatedDetails) {
+        let contact = this.findContactByName(name);
         if (!contact) {
-            throw new Error("Contact not found.");
+            throw new Error("Contact not found!");
         }
-        Object.assign(contact, updatedDetails);
+
+        Object.keys(updatedDetails).forEach(key => {
+            if (updatedDetails[key]) {
+                contact[key] = updatedDetails[key];
+            }
+        });
+
         return "Contact updated successfully!";
-    }
+    } 
 }
 
 module.exports = AddressBook;
