@@ -5,12 +5,12 @@ const addressBook = new AddressBook();
 
 try {
     const contact1 = new Contact(
-        "Pallavi", "Singh", "Bhopal", "India", "Madhya Pradesh", "100001", "6457865490", "pallavigaharwar15@gmail.com"
+        "Pallavi", "Singh", "Bhopal", "India","India", "100001", "6457865490", "pallavigaharwar15@gmail.com"
     );
     console.log(addressBook.addContact(contact1)); 
 
     const contact2 = new Contact(
-        "Sujal", "Singh", "Bhopal", "India", "Madhya Pradesh", "100003", "9856745675", "sujalsingh12@gmail.com"
+        "Sujal", "Singh", "Bhopal", "India","India", "100003", "9856745675", "sujalsingh12@gmail.com"
     );
     console.log(addressBook.addContact(contact2)); 
     console.log("All Contacts Before editing", addressBook.getAllContacts());
@@ -20,8 +20,10 @@ try {
     console.log(addressBook.deleteContact("Sujal"));
     console.log("All Contacts After Deleting:", addressBook.getAllContacts());
     console.log("Total Contacts:", addressBook.countContacts());
-    const duplicateContact=new Contact("Pallavi", "Singh", "Bhopal", "India", "Madhya Pradesh", "100001", "6457865490", "pallavigaharwar15@gmail.com");
+    const duplicateContact=new Contact("Aallavi", "Singh", "Bhopal", "India", "India", "100001", "6457875490", "pallavigaharwar15@gmail.com");
     console.log(addressBook.addContact(duplicateContact));
+    console.log("Contacts in India:");
+    console.log(addressBook.searchByCityOrState("India"));
 } 
 catch (error) {
     console.error("Error:", error.message);
@@ -29,7 +31,7 @@ catch (error) {
 
 try {
     const invalidContact = new Contact(
-        "Pal", "Singh", "Delhi", "India", "Madhya Pradesh", "100234", "9876543210", "valid-email@gmail.com"
+        "Pal", "Singh", "Delhi", "India", "Madhya", "100234", "9876543210", "valid-email@gmail.com"
     );
     console.log(addressBook.addContact(invalidContact));
 } catch (error) {
